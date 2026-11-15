@@ -1,0 +1,32 @@
+请把我提供的创意或提示词清单整理成 FRAME 图像工作台可导入的批量任务 JSON。
+
+只输出合法 JSON，不要 Markdown 代码围栏、注释、解释或省略号。每个创意生成一个独立任务，保留顺序，不要将不同创意合并。如果我指定 50 或 100 个创意，就完整输出 50 或 100 项，不要用“其余同上”代替。
+
+格式：
+{
+  "version": 1,
+  "defaults": {
+    "size": "1536x1024",
+    "quality": "high",
+    "n": 1,
+    "outputFormat": "png",
+    "background": "auto"
+  },
+  "tasks": [
+    { "title": "任务 1", "prompt": "第一个完整的图像提示词" },
+    { "title": "任务 2", "prompt": "第二个完整的图像提示词", "size": "1024x1536" }
+  ]
+}
+
+规则：
+1. 所有共同参数放在 defaults 中；每个任务只写 title、prompt 和需要与 defaults 不同的参数。优先级为：单任务参数 > JSON defaults > 工作台新任务默认值。
+2. defaults 可用字段只有 profileId、model、size、quality、n、outputFormat、background、extra。tasks 每项额外允许 title、prompt。不要生成其他字段、API 地址、密钥、参考图片路径。
+3. profileId 和 model 请默认省略，沿用工作台已保存的连接和模型。只有当我提供真实的连接 ID 与模型 ID 时才填写，必须逐字使用，禁止编造模型名称。
+4. size 预设为 auto、1024x1024（1:1）、1536x1024（3:2）、1024x1536（2:3）。需要时可用 1536x864（16:9）或 864x1536（9:16）。GPT Image 1 系列只用预设。其他自定义尺寸宽高须为 16 的倍数，最长边不超过 3840，宽高比不超过 3:1，总像素 655360 到 8294400。
+5. quality 为 auto、low、medium、high；只有确认为 gpt-image-2.5-* 或 gpt-image-2.6-* 模型时，才可按需使用 xhigh 或 max。
+6. n 是整数 1 到 10，表示每个任务生成的图片数；50 个不同提示词应为 50 个任务且每项 n=1，而不是一个任务 n=50。
+7. outputFormat 为 png、jpeg 或 webp。background 为 auto、opaque 或 transparent；GPT Image 2 系列不可用透明背景，JPEG 也不支持透明。未指定时用 auto。
+8. extra 必须是 JSON 对象，例如 {"output_compression":85}；不需要时省略，不能重复 model、prompt、size 等基础参数。
+9. 单次任务数 1 到 500；每个 prompt 为非空字符串，不超过 32000 字符；title 尽量简短，不超过 80 字符。字符串内换行须写成 \n，引号须转义。
+
+我的具体要求和创意清单如下：

@@ -1,0 +1,47 @@
+plugins { id 'com.android.application' }
+
+tasks.register('buildWebAssets', Exec) {
+    workingDir '../..'
+    commandLine 'cmd', '/c', 'npm', 'run', 'build'
+    inputs.files(fileTree('../../src'), fileTree('../../shared'), fileTree('../../public'),
+            file('../../package-lock.json'), file('../../index.html'), file('../../vite.config.js'))
+    outputs.dir('../../dist')
+}
+tasks.named('preBuild').configure { dependsOn 'buildWebAssets' }
+
+android {
+    namespace 'com.frame.workbench'
+    compileSdk 34
+    useLibrary 'android.test.runner'
+    useLibrary 'android.test.base'
+    defaultConfig {
+        applicationId 'com.frame.workbench'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '1.0.0'
+        testInstrumentationRunner 'android.test.InstrumentationTestRunner'
+    }
+    buildFeatures { buildConfig true }
+    signingConfigs {
+        release {
+            if (System.getenv('FRAME_KEYSTORE')) {
+                storeFile file(System.getenv('FRAME_KEYSTORE'))
+                storePassword System.getenv('FRAME_STORE_PASSWORD')
+                keyAlias 'frame-release'
+                keyPassword System.getenv('FRAME_STORE_PASSWORD')
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (System.getenv('FRAME_KEYSTORE')) signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    sourceSets.main.assets.srcDirs = ['../../dist']
+}

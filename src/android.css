@@ -1,0 +1,76 @@
+.android-app { -webkit-tap-highlight-color: transparent; }
+.android-app body { overscroll-behavior-y: none; }
+.android-app .startup-screen { min-height: 100vh; min-height: 100dvh; }
+.android-app .settings-modal, .android-app .task-editor { max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); }
+.android-app input, .android-app textarea, .android-app select { font-size: 14px; }
+.android-app button { touch-action: manipulation; }
+.android-app .button, .android-app .icon-button { min-height: 44px; }
+.android-app .icon-button { min-width: 44px; }
+.android-app .field, .android-app .field-top > label { font-size: 13px; }
+.android-app .select-wrap, .android-app .stepper { min-height: 44px; }
+.android-app .select-wrap select { font-size: 13px; }
+.android-app .task-row-actions .icon-button { min-width: 40px; }
+.android-app .task-row-copy strong { font-size: 14px; }
+.android-app .task-row-copy > span { font-size: 12px; }
+.android-app .task-row-parameters strong, .android-app .task-row-parameters > span { font-size: 11px; }
+.android-app .task-row-status small { font-size: 10px; }
+.android-app .prompt-input { font-size: 14px; line-height: 1.7; }
+.android-app .status { font-size: 11px; }
+.android-app .text-button { min-height: 40px; font-size: 12px; }
+.android-app .batch-json-input { font-size: 13px; max-height: 45vh; max-height: 45dvh; }
+.android-app .batch-check { font-size: 12px; min-height: 36px; }
+.android-app .batch-check input { width: 18px; height: 18px; }
+.android-app .upload-button small { display: none; }
+.android-app .profile-form input, .android-app .profile-form textarea { font-size: 14px; }
+.android-app .batch-control select, .android-app .batch-control input { font-size: 13px; min-height: 44px; }
+.android-app .toast-stack { width: min(430px, calc(100% - 28px)); }
+.android-app .toast { font-size: 13px; }
+@media (max-width: 700px) {
+  .android-app main { padding: 18px 14px 0; }
+  .android-app .page-heading { gap: 10px; margin-bottom: 16px; }
+  .android-app .section-eyebrow { font-size: 10px; }
+  .android-app h1 { font-size: 26px; }
+  .android-app .page-heading p { font-size: 12px; }
+  .android-app .heading-actions > .button { font-size: 13px; }
+  .android-app .batch-commandbar { flex-wrap: wrap; }
+  .android-app .batch-primary-actions { flex: 1; }
+  .android-app .batch-primary-actions .button { font-size: 12px; padding: 0 10px; }
+  .android-app .view-switch button { width: 38px; height: 38px; }
+  .android-app .defaults-summary { font-size: 11px; gap: 6px; }
+  .android-app .defaults-summary > strong { max-width: 190px; font-size: 11px; }
+  .android-app .filter-count { width: 100%; font-size: 11px; }
+  .android-app .search-input { min-height: 44px; }
+  .android-app .filter-select { min-height: 44px; font-size: 12px; }
+  .android-app .batch-selection { flex-wrap: wrap; gap: 2px; }
+  .android-app .selection-actions { margin-left: auto; }
+  .android-app .task-table-row { grid-template-columns: 22px minmax(0, 1fr) 82px; gap: 8px; padding: 12px 4px; }
+  .android-app .task-table-row > input { width: 18px; height: 18px; }
+  .android-app .task-row-parameters { padding-left: 0; gap: 6px; }
+  .android-app .task-row-copy { min-height: 44px; }
+  .android-app .task-row-actions { flex-wrap: wrap; }
+  .android-app .task-row-status small { max-width: 80px; }
+  .android-app .batch-pagination { flex-wrap: wrap; font-size: 11px; }
+  .android-app .batch-pagination > div { gap: 6px; margin-left: auto; }
+  .android-app .modal-backdrop { padding: 0; align-items: stretch; }
+  .android-app .settings-modal, .android-app .task-editor { width: 100%; max-width: 100%; max-height: 100vh; max-height: 100dvh; border-radius: 0; }
+  .android-app .modal-head { padding: 0 14px; min-height: 58px; }
+  .android-app .modal-footer { padding: 12px 14px; gap: 8px; }
+  .android-app .profile-list { padding: 12px 14px; }
+  .android-app .profile-tab { min-height: 44px; font-size: 13px; }
+  .android-app .profile-form { padding: 18px 16px; }
+  .android-app .task-title { font-size: 14px; min-width: 0; }
+  .android-app .task-head { height: auto; min-height: 56px; flex-wrap: wrap; padding: 6px 12px; gap: 4px; }
+  .android-app .task-head .task-title { flex: 1; width: 90px; }
+  .android-app .task-head .icon-button { min-width: 38px; }
+  .android-app .task-body { padding: 16px; }
+  .android-app .task-footer { flex-wrap: wrap; gap: 8px; padding: 12px; }
+  .android-app .task-meta { font-size: 11px; }
+  .android-app .generate-button { font-size: 13px; }
+  .android-app .ratio-control > button { min-height: 44px; font-size: 13px; }
+  .android-app .batch-parameter { grid-template-columns: 92px minmax(0, 1fr); gap: 8px; }
+  .android-app .batch-parameter .batch-check { font-size: 12px; }
+  .android-app .batch-import .modal-footer .button { flex: 1; }
+  .android-app .preview-bottom { padding-bottom: 16px; }
+  .android-app .preview-top > span { font-size: 11px; }
+  .android-app .inspiration-rail, .android-app .rail-toggle { display: none; }
+}
